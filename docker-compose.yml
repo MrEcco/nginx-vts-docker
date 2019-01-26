@@ -1,0 +1,36 @@
+version: '3.0'
+services:
+  nginx:
+    container_name: nginx
+    # image: mrecco/nginx:latest
+    image: nginx-test
+    volumes:
+    - "./volumes/www:/var/www/html:ro"
+    - "./volumes/config:/etc/nginx:ro"
+    stop_grace_period: 1s
+    expose:
+    - "80"
+    - "443"
+    ports:
+    - "80:80"
+    - "443:443"
+  nginx-vts-exporter:
+    container_name: nginx-vts-exporter
+    image: sophos/nginx-vts-exporter:latest
+    environment:
+    - "NGINX_HOST=http://nginx/dESTS26LkqhaapJyxZN8ozgDXWrdQi"
+    - "METRICS_ADDR=:9913"
+    ports:
+      - "9913:9913"
+    expose:
+      - "9913"
+    links:
+      - nginx:nginx
+    stop_grace_period: 1s
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.21.0.0/16
