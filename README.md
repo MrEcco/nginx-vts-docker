@@ -16,6 +16,8 @@ Each version is latest for image build time.
 docker pull mrecco/nginx
 ```
 
+See me on dockerhub: https://hub.docker.com/r/mrecco/nginx
+
 ## Customizing
 
 In **Dockerfile** you can specify version for OpenSSL, nginx and PageSpeed. 
@@ -32,5 +34,5 @@ Use this references:
 
 ## In addiion
 
-1. Grafana dashboard for Nginx-VTS metrics via PRometheus
+1. Grafana dashboard for Nginx-VTS metrics via Prometheus
 https://grafana.com/dashboards/2949
