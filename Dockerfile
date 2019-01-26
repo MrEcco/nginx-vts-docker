@@ -1,5 +1,8 @@
 FROM ubuntu:bionic
 
+LABEL maintainer="Andrey <MrEcco> Burindin"
+      address="dron100.1.089@gmail.com"
+
 # Versioning
 ARG NGINX_VERSION="latest"
 ARG PAGESPEED_VERSION="latest-stable"
